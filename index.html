@@ -60,6 +60,9 @@
 
             z-index:0;
         }
+        header{
+            background:#000;
+        }
         body{
             background:#000;
         }
@@ -140,8 +143,8 @@
         winHeight = window.innerHeight;
         else if ((document.body) && (document.body.clientHeight))
         winHeight = document.body.clientHeight;
-        can.width = winWidth;
-        can.height = winHeight;
+        can.width = winWidth+500;
+        can.height = winHeight+500;
         can.style.backgroundColor = "#000";
         // ctx.arc(100,100,100,0,2*PI);
         // ctx.fillRect(0,0,can.width,can.height);
