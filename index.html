@@ -18,7 +18,9 @@
         #container{
             width:100%;
             height:400px;
-            /*background:red;*/
+            position:relative;
+            /*pointer-events: none;*/
+            z-index:10;
         }
         header{
             padding-top: 20px;
@@ -29,14 +31,18 @@
             list-style:none;
             width:120px;
             height:120px;
-            background:rgba(0,0,0,0.3);
+            background:rgba(12,0,0,0.3);
+            /*background:red;*/
             border-radius:100%;
             float:left;
             transition:0.5s;
         }
         ul li:hover{
-           background:rgba(128,255,0,0.5);
+           background:rgba(255,255,255,0.5);
+           position:relative;
            transform: scale(1.2, 1.2);
+           z-index:199;
+           box-shadow:0px 0px 10px #fff;
         }
         a{
             width:100%;
@@ -46,14 +52,29 @@
             display:block;
             color:#fff;
         }
+        a:hover{
+            color:#fff;
+        }
+        #canvas{
+            position:absolute;
+
+            z-index:0;
+        }
+        body{
+            background:#000;
+        }
     </style>
   </head>
 
   <body>
+
+    <canvas id="canvas"></canvas>
+
+    
     <header>
       <div class="inner">
         <h1>liumin118.github.io</h1>
-        <h2>liumin☆☆☆我的github主页☆☆☆<font color="red">demo预览</font></h2>
+        <h2>刘敏的github主页☆☆☆<font color="red">demo预览</font></h2>
         <a href="https://github.com/liumin1128" class="button"><small>Follow me on</small> GitHub</a>
       </div>
     </header>
@@ -75,19 +96,270 @@
     </div>
 
     
-<script type="text/javascript">
-    window.onload = function(){
-        aaaaaaaaa();
+// <script type="text/javascript">
+//     window.onload = function(){
+//         aaaaaaaaa();
+//     }
+//     function aaaaaaaaa( ){　
+//             var r2 = Math.floor(Math.random()*125+125);
+//             var g2 = Math.floor(Math.random()*125+125);
+//             var b2 = Math.floor(Math.random()*125+125);
+//             document.body.style.transition = "10s";
+//             document.body.style.background = "rgb("+r2+","+g2+","+b2+")";
+// 　           setTimeout("aaaaaaaaa()", 10000);
+// }
+// </script>
+
+
+<script>
+    var can = document.getElementById("canvas");
+    var ctx = can.getContext("2d");
+    balls = [];
+    var gy = 0;
+    var gx = 0;
+    var ssss = 0;
+    var PI = Math.PI;
+     window.requestAnimFrame = (function(){
+        return  window.requestAnimationFrame       ||
+          window.webkitRequestAnimationFrame ||
+          window.mozRequestAnimationFrame    ||
+          function( callback ){
+            window.setTimeout(callback, 1000 / 60);
+          };
+    })();
+    window.onload = init();
+    function init(e){
+
+        // 获取窗口宽度
+        if (window.innerWidth)
+        winWidth = window.innerWidth;
+        else if ((document.body) && (document.body.clientWidth))
+        winWidth = document.body.clientWidth;
+        // 获取窗口高度
+        if (window.innerHeight)
+        winHeight = window.innerHeight;
+        else if ((document.body) && (document.body.clientHeight))
+        winHeight = document.body.clientHeight;
+        can.width = winWidth;
+        can.height = winHeight;
+        can.style.backgroundColor = "#000";
+        // ctx.arc(100,100,100,0,2*PI);
+        // ctx.fillRect(0,0,can.width,can.height);
+        // creatBalls();
+        // drawBall();
+        // drawShadow();
+        // creatBalls(point);
+         
+        loop();
     }
-    function aaaaaaaaa( ){　
-            var r2 = Math.floor(Math.random()*125+125);
-            var g2 = Math.floor(Math.random()*125+125);
-            var b2 = Math.floor(Math.random()*125+125);
-            document.body.style.transition = "10s";
-            document.body.style.background = "rgb("+r2+","+g2+","+b2+")";
-　           setTimeout("aaaaaaaaa()", 10000);
-}
-</script>
+    document.onmousemove = function(e){
+        // alert();
+        e.preventDefault();
+        var point = windowToCanvas(e.clientX,e.clientY);
+        // console.log(point.x,point.y);
+        gy = (point.y-can.height/2)/2000;
+        gx = (point.x-can.width/2)/2000;
+
+        ssss+=1;
+        if(ssss>=3){
+             creatBalls(point);
+             ssss=0;
+        }
+       
+        // drawBall();
+        // drawShadow();
+
+    }
+ can.onclick = function(){
+        if(can.style.backgroundColor=="rgb(0, 0, 0)"){
+            can.style.backgroundColor = "rgb(255,255,255)";
+            document.getElementById("h1").innerHTML = "是不是很神奇？";
+            document.getElementById("h1").style.color = "#333";
+        }else{
+            can.style.backgroundColor = "rgb(0,0,0)";
+            document.getElementById("h1").innerHTML = "哈哈哈哈哈"
+            document.getElementById("h1").style.color = "#fff";
+        }
+
+    }
+   
+    function loop(){
+        var point = windowToCanvas(can.width/2,can.height/2);
+        console.log(point.x,point.y);
+        // creatBalls(point);
+        window.requestAnimFrame(loop);
+            // creatBalls(point);
+            updateBalls();
+            drawBall();
+            
+            // drawShadow();
+    }
+    function updateBalls(){
+        if (balls.length==0){
+           return;
+        }
+        for(i=0;i<balls.length;i++){
+            // console.log(balls[i].x);
+            balls[i].x+=balls[i].vx;
+            balls[i].y+=balls[i].vy;
+            balls[i].vx+=gx*(0.5+balls[i].radius/20);
+            balls[i].vy+=gy*(0.5+balls[i].radius/20);
+            balls[i].time+=1;
+            if(balls[i].radius>=1){
+            balls[i].radius-=0.1;
+
+            }
+
+            if(balls[i].time>=300){
+                balls.shift();
+            }
+            // balls[i].radius
+            // if(balls[i].x<=-1000||balls[i].y>=1000){
+            //     // balls.splice(200);
+            //     balls.shift();
+            // }
+        }
+
+    }
+    function windowToCanvas(x,y){
+        var bbox = canvas.getBoundingClientRect();
+        return{
+            x:x-bbox.left,
+            y:y-bbox.top
+        }
+    }
+    function creatBalls(point){
+            var R = Math.floor(Math.random()*255);
+            var G = Math.floor(Math.random()*255);
+            var B = Math.floor(Math.random()*255);
+            var A = Math.random()*0.5+0.5;
+            // A = 1;
+            var radius = Math.floor(Math.random()*30);
+            //  if(i%2==0){
+            //     A = 1;
+            // }else{
+            //     radius+=5;
+            // }
+            ball = {
+                // type:Math.floor(Math.random()*4),
+                type:4,
+                color:"rgba("+R+","+G+","+B+","+A+")",
+                radius:radius,
+                x:point.x,
+                y:point.y,
+                vx:Math.random()*10 - 5,
+                vy:Math.random()*2 - 1,
+                time:0
+            };
+            var b = balls.length;
+            // console.log(b);
+            balls[b] = ball;
+            // console.log(balls[b].color);
+
+            // console.log(balls.length);
+
+        
+    }
+    function drawBall(){
+        if (balls.length==0){
+           return;
+        }
+        ctx.fillStyle="rgba(0,0,0,0.1)";
+        ctx.fillRect(0,0,can.width,can.height);
+        ctx.clearRect(0,0,can.width,can.height);
+        ctx.save();
+        ctx.globalAlpha = 1;
+        for(i=0;i<balls.length-1;i++){
+            // ctx.globalCompositeOperation="lighter";
+            // ctx.shadowColor = balls[i].color;
+            // ctx.shadowOffsetX = 1;
+            // ctx.shadowOffsetY = 1;
+            // ctx.shadowBlur = 1;
+            ctx.shadowBlur=balls[i].radius*2;
+            ctx.shadowColor=balls[i].color;
+            ctx.fillStyle = balls[i].color;
+            // ctx.arc(balls[i].x,balls[i].y,balls[i].radius,0,PI*2);
+            // drawStarPath(5,balls[i].x,balls[i].y,balls[i].radius/2,balls[i].radius);
+            // drawSquraPath(balls[i].x,balls[i].y,balls[i].radius);
+            // drawTrianglePath(balls[i].x,balls[i].y,balls[i].radius);
+            // drawBallPath(balls[i].x,balls[i].y,balls[i].radius);
+            // console.log(balls[i].type);
+
+            switch (balls[i].type){
+                case 1:
+                    drawStarPath(5,balls[i].x,balls[i].y,balls[i].radius/2,balls[i].radius);
+                    break;
+                case 2:
+                    drawSquraPath(balls[i].x,balls[i].y,balls[i].radius);
+                    break;
+                case 3:
+                    drawTrianglePath(balls[i].x,balls[i].y,balls[i].radius);
+                    break;
+                default:
+                    drawBallPath(balls[i].x,balls[i].y,balls[i].radius);
+            }
+            ctx.fill();
+        }
+        ctx.restore();
+    }
+  
+    function drawShadow(){
+        for(i=0;i<balls.length;i++){
+            ctx.globalCompositeOperation="lighter";//youxiao
+            ctx.shadowColor = balls[i].color;
+            ctx.shadowOffsetX = 0;
+            ctx.shadowOffsetY = 0;
+            ctx.shadowBlur = (1-balls[i].radius/20)*5;
+            ctx.fillStyle = "rgab(0,0,0,0)";
+            ctx.beginPath();
+            ctx.arc(balls[i].x,balls[i].y,balls[i].radius,0,PI*2);
+            ctx.closePath();
+            ctx.fill();
+        }
+        // alert();
+    }
+    function drawBallPath(x,y,r){
+        ctx.beginPath();
+        
+            ctx.arc(x,y,r,0,PI*2);
+
+        ctx.closePath();
+
+
+    }
+    function drawTrianglePath(x,y,r){
+        ctx.beginPath();
+        ctx.moveTo(x,y-r);
+            ctx.lineTo(x+Math.sqrt(3)*r/2,y+r/2);
+            ctx.lineTo(x-Math.sqrt(3)*r/2,y+r/2);
+        ctx.closePath();
+    }
+    function drawSquraPath(x,y,r){
+        ctx.beginPath();
+        ctx.moveTo(x-r/2,y-r/2);
+            ctx.lineTo(x+r/2,y-r/2);
+            ctx.lineTo(x+r/2,y+r/2);
+            ctx.lineTo(x-r/2,y+r/2);
+        ctx.closePath();
+    }
+    function drawStarPath(b,x,y,R,r){//需要传入边数,x.y坐标,内外圆和内圆
+
+        ctx.beginPath();
+        for(var i = 0; i < b; i ++){
+            ctx.lineTo(
+                Math.cos((90/b + i*360/b)/180 *　Math.PI) * R + x,
+                -Math.sin((90/b + i*360/b)/180 *　Math.PI) * R + y
+                )
+            ctx.lineTo(
+                Math.cos((270/b + i*360/b)/180 *　Math.PI) * r + x,
+                -Math.sin((270/b + i*360/b)/180 *　Math.PI) * r + y
+                )
+        }
+        ctx.closePath();
+    }
+    
+    
+    </script>
   
   </body>
 </html>
