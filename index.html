@@ -27,18 +27,24 @@
         ul li{
             margin:10px;
             list-style:none;
-            width:150px;
-            height:150px;
-            background:rgba(0,0,0,0.1);
+            width:120px;
+            height:120px;
+            background:rgba(0,0,0,0.3);
             border-radius:100%;
             float:left;
+            transition:0.5s;
+        }
+        ul li:hover{
+           background:rgba(128,255,0,0.5);
+           transform: scale(1.2, 1.2);
         }
         a{
             width:100%;
-            height:150px;
-            line-height:150px;
+            height:120px;
+            line-height:120px;
             text-align:center;
             display:block;
+            color:#fff;
         }
     </style>
   </head>
@@ -46,15 +52,16 @@
   <body>
     <header>
       <div class="inner">
-        <h1>Liumin1128.GitHub.com</h1>
-        <h2>liumin</h2>
+        <h1>liumin118.github.io</h1>
+        <h2>liumin☆☆☆我的github主页☆☆☆<font color="red">demo预览</font></h2>
         <a href="https://github.com/liumin1128" class="button"><small>Follow me on</small> GitHub</a>
       </div>
     </header>
 
     <div id="container">
         <ul>
-        <li><a href="http://liumin.win/dream">梦想</a></li>
+            <li><a href="http://liumin.me">我的博客</a></li>
+            <li><a href="http://liumin.win/dream">梦想</a></li>
             <li><a href="http://liumin.win/pic3d">图片浏览器</a></li>
             <li><a href="http://liumin.win/fish">爱心鱼</a></li>
             <li><a href="http://liumin.win/Bigger/">吃小球</a></li>
@@ -63,17 +70,20 @@
             <li><a href="http://120.27.98.119/">多人在线聊天室</a></li>
             <li><a href="http://liumin.win/html/3d正方体.html">3d分解正方体</a></li>
             <li><a href="http://liumin.win/html/荧光泡沫.html">荧光泡沫</a></li>
-            <li><a href="http://liumin.win/html/长尾巴多边形.html"></a></li>
+            <li><a href="http://liumin.win/html/长尾巴多边形.html">长尾巴多边形</a></li>
         </ul>
     </div>
 
     
 <script type="text/javascript">
-    
+    window.onload = function(){
+        aaaaaaaaa();
+    }
     function aaaaaaaaa( ){　
             var r2 = Math.floor(Math.random()*125+125);
             var g2 = Math.floor(Math.random()*125+125);
             var b2 = Math.floor(Math.random()*125+125);
+            document.body.style.transition = "10s";
             document.body.style.background = "rgb("+r2+","+g2+","+b2+")";
 　           setTimeout("aaaaaaaaa()", 10000);
 }
