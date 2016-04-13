@@ -40,7 +40,7 @@ body p { margin: 0; }
 .demos { margin-top: 20px; }
 .demos .demo { margin-bottom: 20px; background: rgba(255, 255, 255, 0.05); transition: 0.5s; color: #fff; padding: 10px; }
 .demos .demo h3 { font-size: 16px; margin: 0; margin-bottom: 10px; color: #999; }
-.demos .demo .imgview { transition: 1s; max-height: 100px; overflow: hidden; margin-bottom: 10px; border-radius: 5px; }
+.demos .demo .imgview { transition: 1s; height: 100px; overflow: hidden; margin-bottom: 10px; border-radius: 5px; }
 .demos .demo .imgview img { width: 100%; opacity: 0.2; }
 .demos .demo:hover { box-shadow: 0px 0px 5px rgba(255, 255, 255, 0.2); background: rgba(255, 255, 255, 0.2); }
 .demos .demo:hover .imgview img { opacity: 1; }
