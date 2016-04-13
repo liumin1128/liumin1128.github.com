@@ -1,32 +1,93 @@
-body { font-family: "microsoft yahei"; background: #d1d3d0; font-size: 16px; color: #555; }
+body {
+  font-family: "microsoft yahei";
+  background: #d1d3d0;
+  font-size: 16px;
+  color: #555; }
 
-.top { background: #fff; position: relative; }
-.top h1 { margin: 0; padding: 30px; padding-bottom: 10px; font-size: 25px; }
-.top ul { border-top: 1px #ccc solid; margin: 0; }
-.top li { padding: 10px; }
-.top li a { color: #333; }
-.top .top-link { position: absolute; top: 0; right: 0; }
-.top .top-link img { display: inline; }
-.top li.active { border-top: 1px red solid; }
+.top {
+  background: #fff;
+  position: relative; }
+  .top h1 {
+    margin: 0;
+    padding: 30px;
+    padding-bottom: 10px;
+    font-size: 25px; }
+  .top ul {
+    border-top: 1px #ccc solid;
+    margin: 0; }
+  .top li {
+    padding: 10px; }
+    .top li a {
+      color: #333; }
+  .top .top-link {
+    position: absolute;
+    top: 0;
+    right: 0; }
+    .top .top-link img {
+      display: inline; }
+  .top li.active {
+    border-top: 1px red solid; }
 
-.width { max-width: 1000px; }
+.width {
+  max-width: 1000px; }
 
-.notice { background: #173a53; color: #fff; padding: 20px; }
-.notice h1 { margin: 0; }
+.notice {
+  background: #173a53;
+  color: #fff;
+  padding: 20px; }
+  .notice h1 {
+    margin: 0; }
 
-.second h1 { color: red; }
-.second td, .second th { text-align: center; padding: 15px 0 !important; max-width: 100px; }
-.second .btn1 { padding: 5px 20px; background: #3f9de5; font-size: 14px; color: #fff; }
-.second .my-btn-group { margin-top: 20px; }
-.second .my-btn-group input { max-width: 50px; }
-.second .my-btn-group form { display: inline; }
-.second .my-btn-group form input { max-width: 100px; }
-.second .my-btn-group form button { border: 0; background: none; }
-.second .qx { border-radius: 100px; padding: 7px 20px; background: #ff6d26; margin-top: 10px; color: #fff; }
-.second .you { background: #11cd6e; border-radius: 20px; padding: 0px 6px; display: block; }
+.second h1 {
+  color: red; }
+.second td, .second th {
+  text-align: center;
+  padding: 15px 0 !important;
+  max-width: 100px; }
+.second .btn1 {
+  padding: 5px 20px;
+  background: #3f9de5;
+  font-size: 14px;
+  color: #fff; }
+.second .my-btn-group {
+  margin-top: 20px; }
+  .second .my-btn-group input {
+    max-width: 50px; }
+  .second .my-btn-group form {
+    display: inline; }
+    .second .my-btn-group form input {
+      max-width: 100px; }
+    .second .my-btn-group form button {
+      border: 0;
+      background: none; }
+.second .qx {
+  border-radius: 100px;
+  padding: 7px 20px;
+  background: #ff6d26;
+  margin-top: 10px;
+  color: #fff; }
+.second .you {
+  background: #11cd6e;
+  border-radius: 20px;
+  padding: 0px 6px;
+  display: block; }
 
-.footer { position: fixed; bottom: 0; width: 100%; text-align: center; background: #4e4e4e; padding: 20px; }
-.footer a { color: #fff; }
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  background: #4e4e4e;
+  padding: 20px; }
+  .footer a {
+    color: #fff; }
 
-.tip { position: fixed; bottom: 60px; width: 100%; text-align: center; }
-.tip p { font-size: 20px; }
+.tip {
+  position: fixed;
+  bottom: 60px;
+  width: 100%;
+  text-align: center; }
+  .tip p {
+    font-size: 20px; }
+
+/*# sourceMappingURL=gp.css.map */

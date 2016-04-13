@@ -1,23 +1,22 @@
-body { font-family: "microsoft yahei"; background: #fff; }
+body { background: #000; }
 body a { color: #999; }
 body a:hover { text-decoration: none; color: #999; }
 body p { margin: 0; }
 
 @-webkit-keyframes "animate" { 0% { transform: scale(0); opacity: 1; }
   100% { transform: scale(3); opacity: 0; } }
+@-webkit-keyframes "colorchange" { 0% { border-color: rgba(0, 0, 0, 0.5); }
+  25% { border-color: rgba(128, 0, 0, 0.5); }
+  50% { border-color: rgba(128, 128, 0, 0.5); }
+  75% { border-color: rgba(0, 128, 128, 0.5); }
+  100% { border-color: rgba(0, 0, 128, 0.5); } }
 .j_container { padding-top: 70px; }
-
-.navbar-collapse.in { background: #000; }
 
 #canvas { position: fixed; top: 0; left: 0; z-index: -1; }
 
-.navbar { background: none !important; border: 0 !important; }
-.navbar .active a { background: rgba(0, 0, 0, 0.5) !important; }
-.navbar a { color: #eee !important; }
-
 .navbar-right { padding-right: 30px; }
 .navbar-right li { text-align: center; }
-.navbar-right span { font-size: 15px; line-height: 50px; padding-left: 10px; }
+.navbar-right span { font-size: 15px; line-height: 50px; padding-left: 10px; color: #fff; }
 .navbar-right span:hover a { color: #fff; }
 .navbar-right span .fa-inverse { color: #222; line-height: 30px; text-shadow: none !important; font-size: 18px; }
 .navbar-right span .fa-github { font-size: 30px; line-height: 35px; }
@@ -50,10 +49,12 @@ body p { margin: 0; }
 .demos .demo:hover a { color: #fff; }
 .demos .demo:hover .points { opacity: 1; }
 
-.head { max-width: 200px; max-height: 200px; width: 100%; }
+.head { max-width: 200px; max-height: 200px; width: 100%; border: 3px rgba(128, 0, 128, 0.5) solid !important; animation: colorchange 20s; box-shadow: 0 0 20px rgba(128, 128, 128, 0.5); -webkit-animation-iteration-count: infinite; -moz-animation-iteration-count: infinite; animation-iteration-count: infinite; transition: 0.3s; }
+.head:hover { transform: scale(1.05); }
 
 .liumin { color: #ccc; padding: 70px 0; background-size: cover; background-repeat: no-repeat; background-position: center 0; background-position: 50% 50%; }
 .liumin h1 { font-size: 25px; }
+.liumin .me { padding-bottom: 20px; }
 .liumin .button { width: 202px; height: 80px; padding-top: 22px; padding-left: 68px; font-family: 'Architects Daughter', 'Helvetica Neue', Helvetica, Arial, serif; font-size: 23px; line-height: 1.2; color: #fff; text-align: center; display: block; }
 .liumin a.button { background: url("../img/github-button.png"); background-size: 100% 100%; display: block; }
 .liumin small { display: block; font-size: 11px; }

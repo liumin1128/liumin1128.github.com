@@ -46,8 +46,8 @@ document.onmousemove = function(e) {
     // console.log(point.x,point.y);
     gy = (point.y - can.height / 2) / 2000;
     gx = (point.x - can.width / 2) / 2000;
-    gx = 0;
-    gy = 0;
+    // gx = 0;
+    // gy = 0;
 
     creatBalls(point);
     // drawBall();
