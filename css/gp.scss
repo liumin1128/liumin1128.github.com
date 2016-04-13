@@ -1,0 +1,116 @@
+body{
+    font-family: "microsoft yahei";
+    background: #d1d3d0;
+    font-size: 16px;
+    color:#555;
+}
+.top{
+    background:#fff;
+    position:relative;
+    h1{
+        margin: 0;
+        padding: 30px;
+        padding-bottom: 10px;
+        font-size: 25px;
+    }
+    ul{
+        border-top: 1px #ccc solid;
+
+        margin:0;
+    }
+    li{
+        padding:10px;
+        a{
+            color: #333;
+        }
+    }
+    .top-link{
+        position:absolute;
+        top:0;
+        right: 0;
+        img{
+            display: inline;
+        }
+    }
+    li.active{
+        border-top: 1px red solid;
+    }
+}
+.width{
+    max-width: 1000px;
+}
+.notice{
+    background:#173a53;
+    color:#fff;
+    padding:20px;
+    h1{
+        margin:0;
+    }
+}
+.second{
+    h1{
+        color:red;
+    }
+    td,th{
+        // border:1px #333 solid !important;
+        text-align: center;
+        padding:15px 0 !important;
+        max-width: 100px;
+    }
+    .btn1{
+        padding:5px 20px;
+        background:#3f9de5;
+        font-size: 14px;
+        color:#fff;
+    }
+    .my-btn-group{
+        margin-top: 20px;
+        input{
+            max-width: 50px;
+        }
+        form{
+            display:inline;
+            input{
+                max-width: 100px;
+            }
+            button{
+                border:0;
+                background:none;
+            }
+        }
+    }
+    .qx {
+        border-radius: 100px;
+        padding: 7px 20px;
+        background: #ff6d26;
+        margin-top: 10px;
+        color: #fff;
+    }
+    .you {
+        background: #11cd6e;
+        border-radius: 20px;
+        padding: 0px 6px;
+        display: block;
+        // color: #fff;
+    }
+}
+.footer{
+    position: fixed;
+    bottom:0;
+    width:100%;
+    text-align: center;
+    background:#4e4e4e;
+    padding:20px;
+    a{
+            color: #fff;
+        }
+}
+.tip{
+    position: fixed;
+    bottom:60px;
+    width:100%;
+    text-align: center;
+    p{
+        font-size: 20px;
+    }
+}

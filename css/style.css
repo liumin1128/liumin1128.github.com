@@ -1,0 +1,59 @@
+body { font-family: "microsoft yahei"; background: #fff; }
+body a { color: #999; }
+body a:hover { text-decoration: none; color: #999; }
+body p { margin: 0; }
+
+@-webkit-keyframes "animate" { 0% { transform: scale(0); opacity: 1; }
+  100% { transform: scale(3); opacity: 0; } }
+.j_container { padding-top: 70px; }
+
+.navbar-collapse.in { background: #000; }
+
+#canvas { position: fixed; top: 0; left: 0; z-index: -1; }
+
+.navbar { background: none !important; border: 0 !important; }
+.navbar .active a { background: rgba(0, 0, 0, 0.5) !important; }
+.navbar a { color: #eee !important; }
+
+.navbar-right { padding-right: 30px; }
+.navbar-right li { text-align: center; }
+.navbar-right span { font-size: 15px; line-height: 50px; padding-left: 10px; }
+.navbar-right span:hover a { color: #fff; }
+.navbar-right span .fa-inverse { color: #222; line-height: 30px; text-shadow: none !important; font-size: 18px; }
+.navbar-right span .fa-github { font-size: 30px; line-height: 35px; }
+
+.navbar-form { position: relative; }
+.navbar-form input { background: none; border: 1px rgba(255, 255, 255, 0.5) solid; border-radius: 100px; padding-right: 30px; }
+.navbar-form button { background: none; border: 0; position: absolute; color: #999; top: 0; bottom: 0; margin: auto; right: 17px; border-radius: 100px; }
+.navbar-form button:hover { background: none; color: #fff; }
+
+.tags .tag0, .tags .tag1, .tags .tag2 { border-radius: 100px; border: 1px #ccc solid; padding: 0 10px; color: #999; font-size: 10px; margin-right: 5px; display: inline-block; }
+.tags .tag1 { border: 1px green solid; color: green; }
+.tags .tag2 { border: 1px blue solid; color: blue; }
+
+.points { position: relative; margin-right: 10px; opacity: 0; }
+.points .point { position: absolute; border-radius: 100px; width: 10px; height: 10px; margin: 0; padding: 0; display: inline-block; animation: animate 3s; -webkit-animation-iteration-count: infinite; -moz-animation-iteration-count: infinite; animation-iteration-count: infinite; }
+.points .r1 { -webkit-animation-delay: 0s; -moz-animation-delay: 0s; animation-delay: 0s; border: 1px red solid; background: red; }
+.points .r2 { -webkit-animation-delay: 1s; -moz-animation-delay: 1s; animation-delay: 1s; border: 1px yellow solid; background: yellow; }
+.points .r3 { -webkit-animation-delay: 2s; -moz-animation-delay: 2s; animation-delay: 2s; border: 1px #00ffff solid; background: #00ffff; }
+.points .r4 { position: absolute; border-radius: 100px; width: 10px; height: 10px; padding: 0; display: inline-block; background: #fff; }
+
+.demos { margin-top: 20px; }
+.demos .demo { margin-bottom: 20px; background: rgba(255, 255, 255, 0.05); transition: 0.5s; color: #fff; padding: 10px; }
+.demos .demo h3 { font-size: 16px; margin: 0; margin-bottom: 10px; color: #999; }
+.demos .demo .imgview { transition: 1s; max-height: 100px; overflow: hidden; margin-bottom: 10px; border-radius: 5px; }
+.demos .demo .imgview img { width: 100%; opacity: 0.2; }
+.demos .demo:hover { box-shadow: 0px 0px 5px rgba(255, 255, 255, 0.2); background: rgba(255, 255, 255, 0.2); }
+.demos .demo:hover .imgview img { opacity: 1; }
+.demos .demo:hover h3 { color: #fff; }
+.demos .demo:hover span { border-color: #fff; color: #fff; }
+.demos .demo:hover a { color: #fff; }
+.demos .demo:hover .points { opacity: 1; }
+
+.head { max-width: 200px; max-height: 200px; width: 100%; }
+
+.liumin { color: #ccc; padding: 70px 0; background-size: cover; background-repeat: no-repeat; background-position: center 0; background-position: 50% 50%; }
+.liumin h1 { font-size: 25px; }
+.liumin .button { width: 202px; height: 80px; padding-top: 22px; padding-left: 68px; font-family: 'Architects Daughter', 'Helvetica Neue', Helvetica, Arial, serif; font-size: 23px; line-height: 1.2; color: #fff; text-align: center; display: block; }
+.liumin a.button { background: url("../img/github-button.png"); background-size: 100% 100%; display: block; }
+.liumin small { display: block; font-size: 11px; }
