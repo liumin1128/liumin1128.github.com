@@ -82,7 +82,7 @@ document.onmousemove = function(e) {
 
 function loop() {
     var point = windowToCanvas(can.width / 2, can.height / 2);
-    console.log(point.x, point.y);
+    // console.log(point.x, point.y);
     // creatBalls(point);
     window.requestAnimFrame(loop);
     // creatBalls(point);
